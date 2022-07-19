@@ -16,7 +16,7 @@ def print_indexed_board(board):
 
 
 CUSTOM_BOARD = False
-PLAYER_1 = 'ai' #white
+PLAYER_1 = 'human' #white
 PLAYER_2 = 'ai' #black
 '''player types:1. 'human' or 2. 'ai'  '''
 
@@ -49,7 +49,7 @@ def main():
             elif PLAYER_1 == 'ai':
                 eval, move = minimax(game, ALPHA, BETA)
                 game.move(move[0], move[1])
-                print(f"ai move was {move[0]} --> {move[1]}")
+                print(f"ai move was {move[0]} --> {move[1]}, eval is {eval}")
 
             if len(game.possible_moves()) == 0 and game.turn == 'black':
                 game.over = True
@@ -68,7 +68,7 @@ def main():
             elif PLAYER_2 == 'ai':
                 eval, move = minimax(game, ALPHA, BETA)
                 game.move(move[0], move[1])
-                print(f"ai move was {move[0]} --> {move[1]}")
+                print(f"ai move was {move[0]} --> {move[1]}, eval is {eval}")
 
             if len(game.possible_moves()) == 0 and game.turn == 'white':
                 game.over = True
@@ -78,3 +78,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    input("enter to exit")

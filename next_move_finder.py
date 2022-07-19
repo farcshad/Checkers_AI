@@ -92,7 +92,7 @@ def minimax(game, alpha, beta, depth = 0):
 
 ''''''''''''''''''''''''''''"""M A I N  P A R T"""'''''''''''''''''''''''''''
 
-DEPTH = 10 #search depth
+DEPTH = 12 #search depth
 ALPHA = -100000 # -infinity
 BETA = 100000 # +infinity
 BOARD = []
@@ -117,12 +117,17 @@ def main():
         evaluation = eval
 
         '''checks to see if white has any possibel moves'''
-        game.turn = 'white'
-        if len(game.possible_moves()) == 0:
-            '''game is over'''
-            break
+        if game.turn == 'white':
+            if len(game.possible_moves()) == 0:
+                '''game is over'''
+                break
         else:
-            game.turn = 'black'
+            game.turn = 'white'
+            if len(game.possible_moves()) == 0:
+                '''game is over'''
+                break
+            else:
+                game.turn = 'black'
 
 
     print_all_stats = True
@@ -132,6 +137,8 @@ def main():
         print(f"evaluation for this outcome with depth {DEPTH + move_counts - 1} is {evaluation}")
         print("final board after black's move is:")
     print(board_output(game.board))
+
+    input("enter anything to exit")
 
 if __name__ == '__main__':
     main()
