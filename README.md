@@ -8,4 +8,4 @@ required functions for finding such move are also included in this file.
 
 play.py: simulates a complete match of (human/ai) VS. (human/ai).
 
-search depth is set in next_move_finder. (default = 10)
+search depth is set in next_move_finder. (default = 12)
